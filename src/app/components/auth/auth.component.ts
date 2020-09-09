@@ -17,6 +17,12 @@ export class AuthComponent implements OnInit {
 
   constructor() { }
 
+  /**
+   * On intitialization check for a logged in session
+   * Amplify stores the session to persist login by default
+   * with localstorage. This can be changed to a custom storage
+   * engine via Amplify.configure (in app.component).
+   */
   ngOnInit(): void {
     Auth.currentAuthenticatedUser()
       .then((user) => {
@@ -32,6 +38,12 @@ export class AuthComponent implements OnInit {
       });
   }
 
+  /**
+   * On Submission of the phone number form, run Auth.signIn with
+   * the phone number (and no password). If success, user is already present
+   * otherwise, run signUp, or re-run signIn if we get a UsernameExistsException
+   * @param event SubmitEvent
+   */
   async onAuthSubmit(event) {
     event.preventDefault();
     Auth.signIn(this.phone)
@@ -52,6 +64,11 @@ export class AuthComponent implements OnInit {
       });
   }
 
+  /**
+   * Basic Amplify signUp, for passwordless/OTP we need to
+   * send a plain string as a "dummy" password. The Lambda function
+   * triggers handle the actual OTP setup (see amplify/functions)
+   */
   async signUp() {
     await Auth.signUp({
       username: this.phone,
@@ -62,6 +79,10 @@ export class AuthComponent implements OnInit {
     }).then(() => this.signIn());
   }
 
+  /**
+   * Signin to Cognito with only a phone number. The logic for CUSTOM_AUTH
+   * is handled on the backend via Lambda functions (amplify/backend).
+   */
   async signIn() {
     this.setMessage("Verify Number");
     Auth.signIn(this.phone)
