@@ -1,6 +1,17 @@
-# Passwordless
+# Passwordless Authentication
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
+A sample application that utilizes AWS Amplify, Cognito, and "CUSTOM_AUTH" flow for One-Time-Password (OTP) functionality via Amazon SNS. This app requires:
+
+ - AWS Account
+ - AWS Amplify CLI
+ - Angular 9+
+ - Node.js 10+
+
+ ```
+ git clone git@github.com:mlabieniec/amplify-otp-auth
+ cd amplify-otp-auth
+ amplify init
+ ```
 
 ## Development server
 

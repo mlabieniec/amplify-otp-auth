@@ -1,0 +1,28 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-passwordless-dev-101243-authRole",
+            "UnauthRoleArn": "arn:aws:iam::207430879252:role/amplify-passwordless-dev-101243-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::207430879252:role/amplify-passwordless-dev-101243-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "amplify-passwordless-dev-101243-deployment",
+            "UnauthRoleName": "amplify-passwordless-dev-101243-unauthRole",
+            "StackName": "amplify-passwordless-dev-101243",
+            "StackId": "arn:aws:cloudformation:us-east-2:207430879252:stack/amplify-passwordless-dev-101243/89545600-f2a6-11ea-98a5-0aeff631aefa",
+            "AmplifyAppId": "d3qqvoh9whn04i"
+        },
+        "categories": {
+            "function": {
+                "passwordless2ceeae772ceeae77CreateAuthChallenge": {
+                    "CHALLENGEANSWER": "CODE"
+                },
+                "passwordless2ceeae772ceeae77DefineAuthChallenge": {},
+                "passwordless2ceeae772ceeae77PreSignup": {},
+                "passwordless2ceeae772ceeae77VerifyAuthChallengeResponse": {}
+            },
+            "auth": {
+                "passwordless2ceeae772ceeae77": {}
+            }
+        }
+    }
+}

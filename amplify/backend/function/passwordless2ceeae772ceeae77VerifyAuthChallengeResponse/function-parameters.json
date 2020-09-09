@@ -1,0 +1,15 @@
+{
+  "trigger": true,
+  "modules": [
+    "boilerplate-verify"
+  ],
+  "parentResource": "passwordless2ceeae772ceeae77",
+  "functionName": "passwordless2ceeae772ceeae77VerifyAuthChallengeResponse",
+  "resourceName": "passwordless2ceeae772ceeae77VerifyAuthChallengeResponse",
+  "parentStack": "auth",
+  "triggerEnvs": [],
+  "triggerDir": "/Users/michael/.nvm/versions/node/v12.13.1/lib/node_modules/@aws-amplify/cli/node_modules/amplify-category-auth/provider-utils/awscloudformation/utils/../triggers/VerifyAuthChallengeResponse",
+  "triggerTemplate": "VerifyAuthChallengeResponse.json.ejs",
+  "roleName": "passwordless2ceeae772ceeae77VerifyAuthChallengeResponse",
+  "skipEdit": true
+}

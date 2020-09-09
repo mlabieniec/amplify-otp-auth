@@ -1,0 +1,28 @@
+<div>
+
+    <p>{{message}}</p>
+
+    <form *ngIf="!user && !waiting" (submit)="onAuthSubmit($event)">
+        <div class="row">
+            <div class="six columns">
+                <label for="phone">Enter your phone number:</label>
+                <input class="u-full-width" [disabled]="waiting" type="tel" id="phone" name="phone" [(ngModel)]="phone"
+                    placeholder="+XXX">
+            </div>
+        </div>
+        <button [disabled]="waiting" class="button-primary">Submit</button>
+    </form>
+
+    <form (submit)="verifyOtp($event)" *ngIf="waiting">
+        <div class="row">
+            <div class="six columns">
+                <label for="code">Enter verification code:</label>
+                <input type="text" id="code" name="code" [(ngModel)]="code">
+            </div>
+        </div>
+        <button>Verify</button>
+    </form>
+
+    <button *ngIf="user" (click)="signOut()" class="button-primary">Sign Out</button>
+
+</div>

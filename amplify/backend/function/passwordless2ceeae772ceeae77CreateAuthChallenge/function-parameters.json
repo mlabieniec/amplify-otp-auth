@@ -1,0 +1,16 @@
+{
+  "trigger": true,
+  "modules": [
+    "boilerplate-create-challenge"
+  ],
+  "parentResource": "passwordless2ceeae772ceeae77",
+  "functionName": "passwordless2ceeae772ceeae77CreateAuthChallenge",
+  "resourceName": "passwordless2ceeae772ceeae77CreateAuthChallenge",
+  "parentStack": "auth",
+  "triggerEnvs": [],
+  "triggerDir": "/Users/michael/.nvm/versions/node/v12.13.1/lib/node_modules/@aws-amplify/cli/node_modules/amplify-category-auth/provider-utils/awscloudformation/utils/../triggers/CreateAuthChallenge",
+  "triggerTemplate": "CreateAuthChallenge.json.ejs",
+  "roleName": "passwordless2ceeae772ceeae77CreateAuthChallenge",
+  "skipEdit": true,
+  "CHALLENGEANSWER": "CODE"
+}
