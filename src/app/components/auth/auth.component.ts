@@ -46,22 +46,7 @@ export class AuthComponent implements OnInit {
    */
   async onAuthSubmit(event) {
     event.preventDefault();
-    Auth.signIn(this.phone)
-      .then((result) => {
-        console.log(result);
-        this.setMessage("Waiting for Code...")
-        this.waiting = true;
-        this.session = result;
-      })
-      .catch((e) => {
-        if (e.code === 'UserNotFoundException') {
-          this.signUp();
-        } else if (e.code === 'UsernameExistsException') {
-          this.signIn();
-        } else {
-          console.log(e.code);
-        }
-      });
+    this.signIn();
   }
 
   /**
@@ -84,7 +69,6 @@ export class AuthComponent implements OnInit {
    * is handled on the backend via Lambda functions (amplify/backend).
    */
   async signIn() {
-    this.setMessage("Verify Number");
     Auth.signIn(this.phone)
       .then((result) => {
         this.session = result;
@@ -96,7 +80,7 @@ export class AuthComponent implements OnInit {
           this.signUp();
         } else if (e.code === 'UsernameExistsException') {
           this.setMessage("Waiting for Code");
-          this.signIn();
+          this.waiting = true;
         } else {
           console.log(e.code);
           console.error(e);
@@ -129,7 +113,7 @@ export class AuthComponent implements OnInit {
     console.log(this.code);
     Auth.sendCustomChallengeAnswer(this.session, this.code)
       .then((user) => {
-        this.setMessage("Logged in");
+        this.setMessage(`Hello ${user.username}`);
         this.user = user;
         this.session = null;
         this.waiting = false;
