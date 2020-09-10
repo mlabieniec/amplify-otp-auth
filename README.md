@@ -1,4 +1,4 @@
-# Passwordless Authentication
+# Passwordless OTP Authentication with SMS
 
 A sample application that utilizes AWS Amplify, Cognito, and "CUSTOM_AUTH" flow for One-Time-Password (OTP) functionality via Amazon SNS. This app requires:
 
@@ -12,6 +12,28 @@ A sample application that utilizes AWS Amplify, Cognito, and "CUSTOM_AUTH" flow 
  cd amplify-otp-auth
  amplify init
  ```
+
+The app (specifically the auth.component) will deal with a `CUSTOM_AUTH` flow with AWS Amplify and Amazon Cognito. There are several Lambda Functions that handle the actual OTP logic found in the `amplify/backed/function` folder after completion:
+
+ - xxxCreateAuthChallenge
+ - xxxDefineAuthChallenge
+ - xxxPreSignup
+ - xxxVerifyAuthChallengeResponse
+
+The "xxx" prefix is dependent on what the Amplify project resource (category) was named when setup with the Amplify CLI.
+
+> NOTE: There is an additional IAM policy Statement that is added to the CreateAuthChallenge function (found in the src folder) due to the need to talk to Amazon SNS:
+
+```json
+   {
+     "Sid": "VisualEditor1",
+     "Effect": "Allow",
+     "Action": "sns:Publish",
+     "Resource": "*"
+   }
+```
+ 
+This should be added to the `xxxCreateAuthChallenge-cloudformation-template.json`'s (found in the amplify/backend/function directory after `amplify push`) `Lambdaexecutionpolicy.Properties.PolicyDocument.Statement` array.
 
 ## Development server
 
