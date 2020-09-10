@@ -7,9 +7,10 @@ A sample application that utilizes AWS Amplify, Cognito, and "CUSTOM_AUTH" flow 
  - Angular 9+
  - Node.js 10+
 
- ```
+ ```bash
  git clone git@github.com:mlabieniec/amplify-otp-auth
  cd amplify-otp-auth
+ npm i
  amplify init
  ```
 
