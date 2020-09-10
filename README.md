@@ -26,12 +26,12 @@ The "xxx" prefix is dependent on what the Amplify project resource (category) wa
 > NOTE: There is an additional IAM policy Statement that is added to the CreateAuthChallenge function (found in the src folder) due to the need to talk to Amazon SNS:
 
 ```json
-   {
-     "Sid": "VisualEditor1",
-     "Effect": "Allow",
-     "Action": "sns:Publish",
-     "Resource": "*"
-   }
+{
+    "Sid": "VisualEditor1",
+    "Effect": "Allow",
+    "Action": "sns:Publish",
+    "Resource": "*"
+}
 ```
  
 This should be added to the `xxxCreateAuthChallenge-cloudformation-template.json`'s (found in the amplify/backend/function directory after `amplify push`) `Lambdaexecutionpolicy.Properties.PolicyDocument.Statement` array.
